@@ -7,8 +7,12 @@ const dotenv = require('dotenv'); // Import the dotenv package
 // Load environment variables from the .env file
 dotenv.config({ path: './config.env' });
 
+
 const app = express();
 const port = 3000; // You can choose any available port
+
+// Serve static files from the "public" directory
+app.use(express.static('public'));
 
 // Replace these with your Gmail credentials
 const senderEmail = 'aagortey@gmail.com';
@@ -52,6 +56,12 @@ app.post('/send-email', async (req, res) => {
     res.status(500).send('Email sending failed.'+ error);
   }
 });
+
+// Define a route for the root URL ("/") that serves the ReadMe.html file
+app.get('/', (req, res) => {
+    // Send the ReadMe.html file as a response
+    res.sendFile(__dirname + '/public/ReadMe.html');
+  });
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Email Alert Sender</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        ul {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Node.js Email Alert Sender</h1>
+    <p>A simple Node.js server that sends email alerts using Gmail's SMTP service.</p>
+
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#configuration">Configuration</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#api-routes">API Routes</a></li>
+        <li><a href="#error-handling">Error Handling</a></li>
+        <li><a href="#contributing">Contributing</a></li>
+        <li><a href="#license">License</a></li>
+    </ul>
+
+    <h2 id="prerequisites">Prerequisites</h2>
+    <p>Before you begin, ensure you have met the following requirements:</p>
+    <ul>
+        <li>Node.js installed on your machine. You can download it from <a href="https://nodejs.org/">nodejs.org</a>.</li>
+        <li>A Gmail account with "Less secure apps" enabled or an App Password generated for secure email sending.</li>
+    </ul>
+
+    <h2 id="getting-started">Getting Started</h2>
+    <p>1. Clone this repository to your local machine:</p>
+    <pre><code>git clone https://github.com/yourusername/nodejs-email-alert-sender.git</code></pre>
+    <p>2. Navigate to the project directory:</p>
+    <pre><code>cd nodejs-email-alert-sender</code></pre>
+    <p>3. Install the project dependencies:</p>
+    <pre><code>npm install</code></pre>
+    <p>4. Start the Node.js server:</p>
+    <pre><code>node server.js</code></pre>
+
+    <h2 id="configuration">Configuration</h2>
+    <p>Before using the program, you need to configure it by replacing the following placeholders in <code>server.js</code>:</p>
+    <pre><code>your_email@gmail.com: Your Gmail email address.
+your_app_password: The App Password generated for secure email sending.
+recipient@example.com: The default recipient email address.</code></pre>
+
+    <h2 id="usage">Usage</h2>
+    <p>To send an email alert, you can make a POST request to the <code>/send-email</code> endpoint with a JSON payload containing the subject, message, and recipient email address. Here's an example:</p>
+    <pre><code>{
+  "subject": "Custom Subject",
+  "message": "This is a custom message for the email.",
+  "recipientEmail": "recipient@example.com"
+}</code></pre>
+
+    <h2 id="api-routes">API Routes</h2>
+    <p><strong>POST /send-email:</strong> Sends an email alert with a custom subject, message, and recipient email address.</p>
+
+    <h2 id="error-handling">Error Handling</h2>
+    <p>The program includes basic error handling for failed email sending. Errors will be logged to the console, and an error response will be sent to the client.</p>
+
+    <h2 id="contributing">Contributing</h2>
+    <p>Contributions are welcome! If you'd like to contribute to this project, please follow these steps:</p>
+    <ol>
+        <li>Fork the project.</li>
+        <li>Create a new branch for your feature or bug fix.</li>
+        <li>Make your changes and test thoroughly.</li>
+        <li>Submit a pull request to the main repository.</li>
+    </ol>
+
+    <h2 id="license">License</h2>
+    <p>This project is licensed under the MIT License.</p>
+    <p>Note: Be cautious when deploying this program in production, as it currently lacks advanced security measures. Consider adding authentication and security enhancements for production use.</p>
+</body>
+</html>
